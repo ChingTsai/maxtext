@@ -488,6 +488,7 @@ class SplashAttention(BaseModel):
   sa_q_layout: str = Field("HEAD_DIM_MINOR", description="Layout for Q in splash attention.")
   sa_k_layout: str = Field("HEAD_DIM_MINOR", description="Layout for K in splash attention.")
   sa_v_layout: str = Field("HEAD_DIM_MINOR", description="Layout for V in splash attention.")
+  sa_use_experimental_scheduler: bool = Field(False, description="Use experimental scheduler")
   use_max_logit_estimate: int = Field(
       -1, description="-1 means no estimate, any > 0 value will be used as max logit estimate"
   )
