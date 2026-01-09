@@ -198,7 +198,7 @@ def preprocessing_pipeline(
   assert global_batch_size % global_mesh.size == 0, "Batch size should be divisible by number of global devices."
 
   if shuffle:
-    dataset = dataset.shuffle(seed=data_shuffle_seed)
+    dataset = dataset.shuffle(buffer_size=10000, seed=data_shuffle_seed)
 
   tokenizer = transformers.AutoTokenizer.from_pretrained(
       tokenizer_path,
