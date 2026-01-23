@@ -689,6 +689,7 @@ def shift_left(x, pad_id, axis=1):
 def shift_and_refine(x, ignored_ids, axis=1):
   """Shift inputs, set segmentation to 0 when target element is in ignored_ids if provided"""
   x["targets"] = shift_left(x["targets"], ignored_ids[0], axis=axis)
+  x["targets_segmentation"] = shift_left(x["targets_segmentation"],0,  axis=axis)
   for ignore_id in ignored_ids:
     x["targets_segmentation"] = np.where(x["targets"] != ignore_id, x["targets_segmentation"], 0)
 
